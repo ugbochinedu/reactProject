@@ -7,44 +7,44 @@ class Calculator extends Component {
     super(props);
     this.state = {
       displayValue: "0",
-      expression: "",
+     calculation: "",
     };
   }
 
-  handleNumberClick = (number) => {
+  numberHandler = (number) => {
     const { displayValue } = this.state;
     let newDisplayValue = displayValue === "0" ? "" : displayValue;
     newDisplayValue += number;
     this.setState({ displayValue: newDisplayValue });
   };
 
-  handleDecimalClick = () => {
+  decimalHandler = () => {
     const { displayValue } = this.state;
     if (!displayValue.includes(".")) {
       this.setState({ displayValue: displayValue + "." });
     }
   };
 
-  handleOperatorClick = (operator) => {
-    const { displayValue, expression } = this.state;
+  operatorHandler = (operator) => {
+    const { displayValue,calculation } = this.state;
     this.setState({
-      expression: expression + displayValue + operator,
+     calculation:calculation + displayValue + operator,
       displayValue: "0",
     });
   };
 
-  handleEqualsClick = () => {
-    const { expression, displayValue } = this.state;
-    const newExpression = expression + displayValue;
-    const result = eval(newExpression);
-    this.setState({ displayValue: result.toString(), expression: "" });
+  equalsHandler = () => {
+    const {calculation, displayValue } = this.state;
+    const newCalculation =calculation + displayValue;
+    const result = eval(newCalculation);
+    this.setState({ displayValue: result.toString(),calculation: "" });
   };
 
-  handleClearClick = () => {
-    this.setState({ displayValue: "0", expression: "" });
+  clearHandler = () => {
+    this.setState({ displayValue: "0",calculation: "" });
   };
 
-  handleDeleteClick = () => {
+  deletedHandler = () => {
     const { displayValue } = this.state;
     if (displayValue.length > 1) {
       this.setState({ displayValue: displayValue.slice(0, -1) });
@@ -53,7 +53,7 @@ class Calculator extends Component {
     }
   };
 
-  handleFunctionClick = (func) => {
+  scientificFuctionsHandler = (func) => {
     const { displayValue } = this.state;
     let result;
     switch (func) {
@@ -83,39 +83,39 @@ class Calculator extends Component {
       <div className="calculator">
         <div className="display">{displayValue}</div>
         <div className="buttons">
-          <div className="row">
-            <button onClick={() => this.handleFunctionClick("sqrt")}>C</button>
-            <button onClick={() => this.handleFunctionClick("sin")}>sin</button>
-            <button onClick={() => this.handleFunctionClick("cos")}>cos</button>
-            <button onClick={() => this.handleFunctionClick("tan")}>tan</button>
+          <div className="btns">
+            <button onClick={() => this.scientificFuctionsHandler("sqrt")}>C</button>
+            <button onClick={() => this.scientificFuctionsHandler("sin")}>sin</button>
+            <button onClick={() => this.scientificFuctionsHandler("cos")}>cos</button>
+            <button onClick={() => this.scientificFuctionsHandler("tan")}>tan</button>
           </div>
-          <div className="row">
-            <button onClick={() => this.handleNumberClick("7")}>7</button>
-            <button onClick={() => this.handleNumberClick("8")}>8</button>
-            <button onClick={() => this.handleNumberClick("9")}>9</button>
-            <button onClick={() => this.handleOperatorClick("/")}>÷</button>
+          <div className="btns">
+            <button onClick={() => this.numberHandler("7")}>7</button>
+            <button onClick={() => this.numberHandler("8")}>8</button>
+            <button onClick={() => this.numberHandler("9")}>9</button>
+            <button onClick={() => this.operatorHandler("/")}>÷</button>
           </div>
-          <div className="row">
-            <button onClick={() => this.handleNumberClick("4")}>4</button>
-            <button onClick={() => this.handleNumberClick("5")}>5</button>
-            <button onClick={() => this.handleNumberClick("6")}>6</button>
-            <button onClick={() => this.handleOperatorClick("*")}>×</button>
+          <div className="btns">
+            <button onClick={() => this.numberHandler("4")}>4</button>
+            <button onClick={() => this.numberHandler("5")}>5</button>
+            <button onClick={() => this.numberHandler("6")}>6</button>
+            <button onClick={() => this.operatorHandler("*")}>×</button>
           </div>
-          <div className="row">
-            <button onClick={() => this.handleNumberClick("1")}>1</button>
-            <button onClick={() => this.handleNumberClick("2")}>2</button>
-            <button onClick={() => this.handleNumberClick("3")}>3</button>
-            <button onClick={() => this.handleOperatorClick("-")}>-</button>
+          <div className="btns">
+            <button onClick={() => this.numberHandler("1")}>1</button>
+            <button onClick={() => this.numberHandler("2")}>2</button>
+            <button onClick={() => this.numberHandler("3")}>3</button>
+            <button onClick={() => this.operatorHandler("-")}>-</button>
           </div>
-          <div className="row">
-            <button onClick={() => this.handleNumberClick("0")}>0</button>
-            <button onClick={this.handleDecimalClick}>.</button>
-            <button onClick={this.handleEqualsClick}>=</button>
-            <button onClick={() => this.handleOperatorClick("+")}>+</button>
+          <div className="btns">
+            <button onClick={() => this.numberHandler("0")}>0</button>
+            <button onClick={this.decimalHandler}>.</button>
+            <button onClick={this.equalsHandler}>=</button>
+            <button onClick={() => this.operatorHandler("+")}>+</button>
           </div>
-          <div className="row">
-            <button onClick={this.handleClearClick}>√</button>
-            <button onClick={this.handleDeleteClick}>DEL</button>
+          <div className="btns">
+            <button onClick={this.clearHandler}>√</button>
+            <button onClick={this.deletedHandler}>DEL</button>
           </div>
         </div>
       </div>
