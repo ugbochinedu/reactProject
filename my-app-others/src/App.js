@@ -1,12 +1,18 @@
 // import logo from './logo.svg';
 // import './App.css';
-import Form from './components/form';
+// import Calculator from './components/Calculator/Calculator';
+// import Number from './components/Calculator/Number';
+// import CurrencyExchanger from './components/Currency/Currency';
+// import ClassCal from './components/Calculator/ClassCal';
+import Money from './components/Currency/money';
+// import MyForm from './components/Form/MyForm';
+// import Form from './components/form';
 
 function App() {
 
-  const collectedValue = (newValue) =>{
-    console.log(newValue)
-  }
+  // const collectedValue = (newValue) =>{
+  //   console.log(newValue)
+  // }
 
   return (
     <div className="App">
@@ -24,8 +30,14 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Form collectValue ={collectedValue}/>
+      {/* <Form collectValue ={collectedValue}/> */}
       {/* <Form /> */}
+      {/* <MyForm/> */}
+      {/* <Calculator/> */}
+      {/* <Number/> */}
+      {/* <CurrencyExchanger/> */}
+      <Money/>
+      {/* <ClassCal/> */}
     </div>
   );
 }

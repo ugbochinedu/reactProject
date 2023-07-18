@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgb(24, 24, 54);
+}
+
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    margin: auto;
+    height: 100px;
+}
+
+.nav-box{
+    background: rgb(38, 38, 76);
+    color: white;
+    box-shadow: 0px 0px 2px 3px  rgb(38, 38, 76);
+}
+
+.logo{
+    font-size: 35px;
+    width: 70px;
+    height: 70px;
+    background: rgb(243,186,18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    width: 700px;
+}
+
+.links a{
+    text-decoration: none;
+    color: white;
+}

@@ -5,7 +5,9 @@
 // import Aircondition from './views/components/AirCondition/AirCondition';
 // import Form from './views/components/Form/form';
 // import FormComponent from './views/components/NewForm/NewForm';
-import EliteClass from './views/components/class/EliteClass1';
+// import EliteClass from './views/components/class/EliteClass1';
+import Calculator from './views/components/Calculator/Calculator';
+import Details from './views/components/function/function';
 
 function App() {
   return (
@@ -29,7 +31,9 @@ function App() {
       {/* <Aircondition/> */}
       {/* <Form/> */}
       {/* <FormComponent/> */}
-      <EliteClass/>
+      {/* <EliteClass/> */}
+      {/* <Calculator/> */}
+      <Details/>
     </div>
   );
 }

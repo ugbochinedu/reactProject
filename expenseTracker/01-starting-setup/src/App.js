@@ -30,11 +30,10 @@ import AddUser from "./compo2/Users/AddUser";
 //   },
 // ];
 
-
 // function App() {
 
 //   const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
-  
+
 //   const addExpenseHandler = expense => {
 //     // ...expense,
 //     setExpenses(prevExpenses =>{
@@ -53,14 +52,12 @@ import AddUser from "./compo2/Users/AddUser";
 
 // export default App;
 
-
-import React from 'react';
+import React, { useState, Fragment } from "react";
+import UsersList from "./compo2/Users/UsersList";
 
 // import CourseGoalList from './compo/CourseGoals/CourseGoalList/CourseGoalList';
 // import CourseInput from './compo/CourseGoals/CourseInput/CourseInput';
-import './App.css';
-
-
+import "./App.css";
 
 const App = () => {
   // const [courseGoals, setCourseGoals] = useState([
@@ -76,7 +73,6 @@ const App = () => {
   //   });
   // };
 
-
   // const deleteItemHandler = goalId => {
   //   setCourseGoals(prevGoals => {
   //     const updatedGoals = prevGoals.filter(goal => goal.id !== goalId);
@@ -88,30 +84,35 @@ const App = () => {
   //   <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
   // );
 
-
   // if (courseGoals.length > 0) {
   //   content = (
   //     <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
   //   );
   // }
 
+  const [usersList, setUsersList] = useState([]);
+
+  const addUserHandler = (uName, uAge) => {
+    setUsersList((prevUsersList) => {
+      return [...prevUsersList, { name: uName, age: uAge, id: Math.random().toString()},];
+    });
+  };
+   // const addGoalHandler = enteredText => {
+  //   setCourseGoals(prevGoals => {
+  //     const updatedGoals = [...prevGoals];
+  //     updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
+  //     return updatedGoals;
+  //   });
+  // };
+
+  console.log(usersList)
+
   return (
-    <div>
-      <AddUser/>
-      {/* <section id="goal-form">
-        <CourseInput onAddGoal={addGoalHandler} />
-      </section>
-      <section id="goals">
-        {content}
-        {courseGoals.length > 0 && (
-          <CourseGoalList
-            items={courseGoals}
-            onDeleteItem={deleteItemHandler}
-          />
-        ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
-        }
-      </section> */}
-    </div>
+    <Fragment>
+      <AddUser onAddUser={addUserHandler} />
+      <UsersList users={usersList} />
+     
+    </Fragment>
   );
 };
 
