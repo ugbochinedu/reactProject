@@ -4,7 +4,10 @@
 // import Number from './components/Calculator/Number';
 // import CurrencyExchanger from './components/Currency/Currency';
 // import ClassCal from './components/Calculator/ClassCal';
-import Money from './components/Currency/money';
+// import Money from './components/Currency/money';
+import { useState } from 'react';
+import Chat from './components/chat/chat';
+import Message from './components/chat/message';
 // import MyForm from './components/Form/MyForm';
 // import Form from './components/form';
 
@@ -13,6 +16,13 @@ function App() {
   // const collectedValue = (newValue) =>{
   //   console.log(newValue)
   // }
+
+  const[message, setMessage] = useState("")
+
+  const receievedValueHandler = (msg)=>{
+    setMessage(msg)
+  }
+  console.log(message);
 
   return (
     <div className="App">
@@ -36,8 +46,10 @@ function App() {
       {/* <Calculator/> */}
       {/* <Number/> */}
       {/* <CurrencyExchanger/> */}
-      <Money/>
+      {/* <Money/> */}
       {/* <ClassCal/> */}
+      <Chat collectedInputValue={receievedValueHandler} />
+      <Message  receievedMessage ={message}/>
     </div>
   );
 }
